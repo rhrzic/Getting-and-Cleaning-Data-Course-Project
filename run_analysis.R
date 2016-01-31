@@ -60,4 +60,4 @@ names(tidy_dataset)[1:2] <- c("subject", "activity")
 
 ##And finally we export the newly created tidy_dataset
 
-write.table(tidy_dataset, "tidy_dataset.txt", sep=" ")
+write.table(tidy_dataset, "tidy_dataset.txt", sep=" ", row.name=FALSE)
