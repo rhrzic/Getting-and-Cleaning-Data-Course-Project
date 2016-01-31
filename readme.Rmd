@@ -5,18 +5,11 @@ date: "31 January 2016"
 output: html_document
 ---
 
-This is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see <http://rmarkdown.rstudio.com>.
+The new dataset was created using the following steps:
+1. Importing test and train data, each consisting of three txt files (subject, X and Y). Note that we did not use the Inertia Signals data at all.
+2. Combining all the above data, assuming that rows were correspondent for the three files in each directory respectively.
+3. Subsetting the complete dataset to only include only the  variables found in var_names.txt, that is means and standard deviations from the original dataset.
+4. Finally, we summarized the data by grouping the data by subject and activity with the values of variables being the calculated mean of each of the grouping combinations.
 
-When you click the **Knit** button a document will be generated that includes both content as well as the output of any embedded R code chunks within the document. You can embed an R code chunk like this:
-
-```{r}
-summary(cars)
-```
-
-You can also embed plots, for example:
-
-```{r, echo=FALSE}
-plot(cars)
-```
-
-Note that the `echo = FALSE` parameter was added to the code chunk to prevent printing of the R code that generated the plot.
+For precise code used, please consult the run_analysis.R. It is extensively documented, so the code should be easy to follow.
+For more information on the original dataset and how it was manipulated, check the CodeBook.Rmd file.

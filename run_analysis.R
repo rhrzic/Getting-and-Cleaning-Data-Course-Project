@@ -1,6 +1,7 @@
 ##All the data is found locally within the "UCI HAR Dataset" folder
 ##The data is found split within 2 folders, test and train
 ##In addition it is fragmented within 3 files: subject label, data itself and activity label
+
 ##Thus the first step is to load all the data
 
 X_test <- read.table("UCI HAR Dataset/test/X_test.txt")
@@ -49,4 +50,14 @@ subset_set[,2] <- revalue(as.factor(subset_set[,2]), recode_instr)
 
 ##Now for the last task, we create a new tidy dataset using the aggregate function
 tidy_dataset <- with(subset_set, aggregate(subset_set, by=list(subject,activity), FUN=mean, na.rm=TRUE))
+
 ##The result is a dataset that displays the mean for all combinations of activity and subject (180 observations)
+##Thenw we rename the newly created GROUP variables and delete the old ones (cols 3 and 4), since they're no longer useful
+
+tidy_dataset$subject <- NULL
+tidy_dataset$activity <- NULL
+names(tidy_dataset)[1:2] <- c("subject", "activity")
+
+##And finally we export the newly created tidy_dataset
+
+write.table(tidy_dataset, "tidy_dataset.txt", sep=" ")
