@@ -13,3 +13,5 @@ The new dataset was created using the following steps:
 
 For precise code used, please consult the run_analysis.R. It is extensively documented, so the code should be easy to follow.
 For more information on the original dataset and how it was manipulated, check the CodeBook.Rmd file.
+
+If you want to run the code directly, please make sure to have the unzipped folder UCI HAR Dataset in your working directory. The structure of the zipped folder should not have been altered in any way.
